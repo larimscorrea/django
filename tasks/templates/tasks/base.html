@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Task Manager{% endblock %}</title>
+</head>
+<body>
+
+    <header>
+        <h1>{% block header %}My Task Manager{% endblock %}</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'task_list' %}">Task List</a></li>
+                <!-- Adicione outros links de navegação aqui conforme necessário -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Rodapé aqui -->
+    </footer>
+
+</body>
+</html>

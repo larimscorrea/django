@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{% if task %} Edit Task {% else %} New Task {% endif %}</h2>
+
+<form method="post" action="{% if task %} {%url 'task_edit' pk=task.pk %} {% else %} {% url 'task_new' %} {% endif %}">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" value="{% if task %}{{ task.title }} {% endif %} required">
+    <br>
+    <label for="description">Description: </label>
+    <textarea name="description" id="description" required>{% if task %}{{ task.description }} {% endif %}</textarea>
+    <br>
+    <button type="submit">{% if task %} Save changes{% else %} Create task {% endif %}</button>
+</form>
+
+{% endblock %}
